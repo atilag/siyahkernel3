@@ -38,7 +38,7 @@ rm -rf $INITRAMFS_TMP/.hg
 mkdir -p $INITRAMFS/lib/modules
 find -name '*.ko' -exec cp -av {} $INITRAMFS_TMP/lib/modules/ \;
 chmod 644 $INITRAMFS_TMP/lib/modules/*
-/home/jgomez/b2g/build.ndk7/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-strip --strip-unneeded $INITRAMFS_TMP/lib/modules/*
+/home/jgomez/b2g/build/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-strip --strip-unneeded $INITRAMFS_TMP/lib/modules/*
 
 nice -n 10 make -j3 zImage CONFIG_INITRAMFS_SOURCE="$INITRAMFS_TMP" || exit 1
 
